@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One-Click Copy</title>
+</head>
+<body>
+
+  <!-- The link with an onclick event to trigger the copy function -->
+  <a href="javascript:void(0);" onclick="copyToClipboard()">Click to Copy Text</a>
+
+  <script>
+    function copyToClipboard() {
+      // Text to be copied
+      var textToCopy = "This is the text you want to copy.";
+
+      // Create a temporary input element
+      var tempInput = document.createElement("input");
+      tempInput.value = textToCopy;
+      document.body.appendChild(tempInput);
+
+      // Select the text and copy
+      tempInput.select();
+      document.execCommand("copy");
+
+      // Remove the temporary input
+      document.body.removeChild(tempInput);
+
+      alert("Text copied to clipboard!");
+    }
+  </script>
+
+</body>
+</html>
